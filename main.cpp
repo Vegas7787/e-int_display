@@ -48,9 +48,9 @@ void prep2EinkSPI(const Mat &img, vector<uint8_t> &bytes)
     }
 }
 
-vector<uint8_t> img2eink()
+vector<uint8_t> img2eink(string img_address)
 {
-    Mat img = imread("m.png");
+    Mat img = imread(img_address);
 
     if (img.empty())
     {
@@ -94,16 +94,16 @@ vector<uint8_t> img2eink()
     return out_im;
 }
 
-int main()
-{
-    int k =0;
-    std::vector<uint8_t> data = img2eink();
+// int main()
+// {
+//     int k =0;
+//     std::vector<uint8_t> data = img2eink();
 
-    for (auto v : data)
-    {
-        std::cout << (int)v << ", ";
-        k++;
-    }
-    cout << endl << k;
-    cin.get();
-}
+//     for (auto v : data)
+//     {
+//         std::cout << (int)v << ", ";
+//         k++;
+//     }
+//     cout << endl << k;
+//     cin.get();
+// }
