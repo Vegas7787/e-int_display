@@ -1,4 +1,4 @@
-# 🖼️ Image Conversion Tool for E-Ink Displays
+# Image Conversion Tool for E-Ink Displays
 
 ## Overview
 
