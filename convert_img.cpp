@@ -20,7 +20,7 @@ void prep2EinkSPI(const Mat &img, vector<uint8_t> &bytes)
         uint8_t outByte = 0b0;
         
 
-        for (int xByte = 0; xByte < width; xByte++)
+        for (int xByte = width - 1; xByte >= 0; xByte--)
         {
 
             int bite = row[xByte];
@@ -87,6 +87,9 @@ vector<uint8_t> img2eink(string img_address)
 
     LUT(gray, lut, lgray);
 
+    imshow("ind", gray);
+    waitKey(1);
+
     vector<uint8_t> out_im;
 
     prep2EinkSPI(lgray, out_im);
@@ -94,16 +97,16 @@ vector<uint8_t> img2eink(string img_address)
     return out_im;
 }
 
-// int main()
-// {
-//     int k =0;
-//     std::vector<uint8_t> data = img2eink();
+int main()
+{
+    int k = 0;
+    std::vector<uint8_t> data = img2eink("ctrkl.png");
 
-//     for (auto v : data)
-//     {
-//         std::cout << (int)v << ", ";
-//         k++;
-//     }
-//     cout << endl << k;
-//     cin.get();
-// }
+    for (auto v : data)
+    {
+        std::cout << (int)v << ", ";
+        k++;
+    }
+    cout << endl << k;
+    cin.get();
+}
